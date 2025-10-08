@@ -15,9 +15,15 @@ const productSchema = new Schema({
     required: true,
   },
   category: {
-    type: String,
+    type: Schema.Types.ObjectId,
+    ref: "Category",
     required: true,
   },
+  image: {
+    type: String,
+  },
+  billplz_id: String,
+  paid_at: Date,
 });
 
 // create a Modal from the schema
