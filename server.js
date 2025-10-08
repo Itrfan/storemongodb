@@ -12,12 +12,11 @@ app.use(express.json());
 
 app.use(cors());
 
-
 // connect to MongoDB using Mongoose
 async function connectToMongoDB() {
   try {
     // wait for the MongoDB to connect
-    await mongoose.connect( process.env.MONGODB_URL + "/store");
+    await mongoose.connect(process.env.MONGODB_URL + "/store");
     console.log("MongoDB is Connected");
   } catch (error) {
     console.log(error);
@@ -41,7 +40,7 @@ app.use("/image", require("./routes/image"));
 app.use("/categories", require("./routes/category"));
 app.use("/users", require("./routes/user"));
 
-app.use("/uploads" , express.static("uploads") )
+app.use("/uploads", express.static("uploads"));
 
 // start the express server
 app.listen(5123, () => {
