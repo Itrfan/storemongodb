@@ -27,20 +27,20 @@ async function connectToMongoDB() {
 connectToMongoDB();
 
 // setup root route
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
   res.send("Happy coding!");
 });
 
 // import all the routers
 const productRouter = require("./routes/product");
-app.use("/products", productRouter);
-app.use("/orders", require("./routes/order"));
-app.use("/payment", require("./routes/payment"));
-app.use("/image", require("./routes/image"));
-app.use("/categories", require("./routes/category"));
-app.use("/users", require("./routes/user"));
+app.use("/api/products", productRouter);
+app.use("/api/orders", require("./routes/order"));
+app.use("/api/payment", require("./routes/payment"));
+app.use("/api/image", require("./routes/image"));
+app.use("/api/categories", require("./routes/category"));
+app.use("/api/users", require("./routes/user"));
 
-app.use("/uploads", express.static("uploads"));
+app.use("/api/uploads", express.static("uploads"));
 
 // start the express server
 app.listen(5123, () => {
